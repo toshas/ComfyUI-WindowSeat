@@ -1,3 +1,30 @@
+[project]
+name = "comfyui-windowseat"
+description = "ComfyUI custom node for removing reflections from images using the WindowSeat model."
+version = "1.0.0"
+license = { file = "LICENSE" }
+dependencies = [
+    "torch>=2.5.0",
+    "torchvision>=0.20.0",
+    "diffusers>=0.36.0",
+    "transformers>=4.40.0",
+    "accelerate",
+    "safetensors",
+    "huggingface_hub",
+    "peft",
+    "bitsandbytes",
+    "Pillow",
+    "numpy",
+]
+
+[project.urls]
+Repository = "https://github.com/toshas/ComfyUI-WindowSeat"
+
+[tool.comfy]
+PublisherId = "toshas"
+DisplayName = "ComfyUI-WindowSeat"
+Icon = ""
+
 [tool.ruff]
 target-version = "py310"
 line-length = 100
