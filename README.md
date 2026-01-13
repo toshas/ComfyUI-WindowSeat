@@ -13,11 +13,7 @@ A ComfyUI custom node plugin for removing reflections from images using the [Win
 
 ## Installation
 
-### Option 1: ComfyUI Manager (Recommended)
-
-Search for "WindowSeat" in ComfyUI Manager and install.
-
-### Option 2: Manual Installation
+### Option 1: Manual Installation
 
 ```bash
 cd ComfyUI/custom_nodes
@@ -25,6 +21,12 @@ git clone https://github.com/toshas/ComfyUI-WindowSeat.git
 cd ComfyUI-WindowSeat
 pip install -r requirements.txt
 ```
+
+### Option 2: ComfyUI Manager
+
+Search for "WindowSeat" in ComfyUI Manager and install.
+
+> **Note:** If you get a security error when installing, you can temporarily [change the security policy as described here](https://github.com/Comfy-Org/ComfyUI-Manager?tab=readme-ov-file#security-policy), restart ComfyUI, install this plugin, and then restore your security policy.
 
 ## Usage
 
