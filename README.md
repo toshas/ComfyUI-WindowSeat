@@ -5,10 +5,10 @@
 A ComfyUI custom node plugin for removing reflections from images using the [WindowSeat](https://github.com/huawei-bayerlab/windowseat-reflection-removal) model.
 
 <p align="center">
-  <a href="https://hf.co/spaces/huawei-bayerlab/windowseat-reflection-removal-web"><img src="https://img.shields.io/badge/%F0%9F%A4%8D%20Project%20-Website-blue"></a>
-  <a href="https://arxiv.org/abs/2512.05000"><img src="https://img.shields.io/badge/arXiv-PDF-b31b1b"></a>
-  <a href="https://huggingface.co/huawei-bayerlab/windowseat-reflection-removal-v1-0"><img src="https://img.shields.io/badge/🤗%20Hugging%20Face%20-Model-yellow"></a>
-  <a href="https://huggingface.co/spaces/toshas/windowseat-reflection-removal"><img src="https://img.shields.io/badge/🤗%20Hugging%20Face%20-Space-yellow"></a>
+  <a href="https://hf.co/spaces/huawei-bayerlab/windowseat-reflection-removal-web"><img src="assets/shields/project-website.svg"></a>
+  <a href="https://arxiv.org/abs/2512.05000"><img src="assets/shields/arxiv-pdf.svg"></a>
+  <a href="https://huggingface.co/huawei-bayerlab/windowseat-reflection-removal-v1-0"><img src="assets/shields/huggingface-model-yellow.svg"></a>
+  <a href="https://huggingface.co/spaces/toshas/windowseat-reflection-removal"><img src="assets/shields/huggingface-space-yellow.svg"></a>
 </p>
 
 ## Installation
