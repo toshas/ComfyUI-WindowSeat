@@ -4,6 +4,7 @@ WindowSeat Reflection Removal - Core Inference Logic
 Adapted from https://github.com/huawei-bayerlab/windowseat-reflection-removal
 """
 
+import inspect
 import json
 import math
 
@@ -55,6 +56,13 @@ def load_qwen_vae(uri: str, device: torch.device) -> AutoencoderKLQwenImage:
     )
     vae.to(device, dtype=torch.bfloat16)
     return vae
+
+
+# diffusers 0.40 dropped `txt_seq_lens` from QwenImageTransformer2DModel.forward: the text
+# lengths are derived from `encoder_hidden_states_mask` instead. Older releases still take it.
+TRANSFORMER_TAKES_TXT_SEQ_LENS = (
+    "txt_seq_lens" in inspect.signature(QwenImageTransformer2DModel.forward).parameters
+)
 
 
 def load_qwen_transformer(uri: str, device: torch.device) -> QwenImageTransformer2DModel:
@@ -218,6 +226,7 @@ def flow_step(
 
     img_shapes = [[(1, h_img, w_img)]] * B
     txt_seq_lens = prompt_mask.sum(dim=1).tolist() if prompt_mask is not None else None
+    txt_seq_lens_kwargs = {"txt_seq_lens": txt_seq_lens} if TRANSFORMER_TAKES_TXT_SEQ_LENS else {}
 
     attention_kwargs = getattr(transformer, "attention_kwargs", {}) or {}
 
@@ -228,7 +237,7 @@ def flow_step(
             encoder_hidden_states=prompt_embeds,
             encoder_hidden_states_mask=prompt_mask,
             img_shapes=img_shapes,
-            txt_seq_lens=txt_seq_lens,
+            **txt_seq_lens_kwargs,
             guidance=None,
             attention_kwargs=attention_kwargs,
             return_dict=False,
